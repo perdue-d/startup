@@ -5,11 +5,11 @@
 ## HTML 
 ### [x]To build the structure you must use html to create the home page and login pages. The basic frame work is made with this.
 ## CSS 
-### [x] To create the styling and design we will be using this to make this. This essential for designs
+### [x] To create the styling and design we will be using this to make this. This essential for designs. I intend to make sure the design is appealing to the eyes and use the designing skills i have learned.
 ## React
-### [x]To be able to interact with the web page we must be use this. You will be able to click links and navigate the page.
+### [x]To be able to interact with the web page we must be use this. You will be able to click links and navigate the page. I plan to make it so you click and return to any page at any time as well as return easily
 ## Web Service
-### [x]To be able to authenticate the user and connect with the leaderboards and scores this is needed by scoring external data that is used for global statics that can list and update the scores.
+### [x]To be able to authenticate the user and connect with the leaderboards and scores this is needed Supabase APit that can list and update the scores.
 ## DB
 ### [x] To make a leader board this is necessary. It will store scores and be able to make leaderboard accurate.
 ## Web Socket

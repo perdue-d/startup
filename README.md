@@ -9,7 +9,7 @@
 ## React
 ### [x]To be able to interact with the web page we must be use this. You will be able to click links and navigate the page.
 ## Web Service
-### [x]To be able to authenticate the user and connect with the leaderboards and scores this is needed by scoring external data that can list and update the scores.
+### [x]To be able to authenticate the user and connect with the leaderboards and scores this is needed by scoring external data that is used for global statics that can list and update the scores.
 ## DB
 ### [x] To make a leader board this is necessary. It will store scores and be able to make leaderboard accurate.
 ## Web Socket

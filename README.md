@@ -9,10 +9,10 @@
 ## React
 ### [x]To be able to interact with the web page we must be use this. You will be able to click links and navigate the page. I plan to make it so you click and return to any page at any time as well as return easily
 ## Web Service
-### [x]To be able to authenticate the user and connect with the leaderboards and scores this is needed Supabase APit that can list and update the scores.
+### [x]To be able to authenticate the user and connect with the leaderboards and scores I will use the Supabase API spefically that can list and update the scores.
 ## DB
 ### [x] To make a leader board this is necessary. It will store scores and be able to make leaderboard accurate.
 ## Web Socket
-### [x]To have realtime updates we must have this. We can see when someone passes you on the leader board and react in turn.
+### [x]To have realtime updates we must have this. We can see when someone passes you on the leader board and react in turn by using the Supabase API.
 ## Prototype
 ![Image](ImageCS260.png)

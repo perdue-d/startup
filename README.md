@@ -7,7 +7,7 @@
 ## CSS 
 ### To create the styling and design we will be using this to make this
 ## React
-###To be able to interact with the web page we must be use this
+### To be able to interact with the web page we must be use this
 ## Web Service
 ### To be able to authenticate the user and connect with the leaderboards and scores this is needed through a third party Api that can list and update the scores.
 ## DB

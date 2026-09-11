@@ -13,3 +13,4 @@ To be able to authenticate the user and connect with the 3rd party server this i
 To make a leader board this is necessary
 # Web Socket
 To have realtime updates we must have this
+![Image](ImageCS260.png)

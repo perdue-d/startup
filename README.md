@@ -16,6 +16,8 @@
 ### [x]To have realtime updates we must have this. We can see when someone passes you on the leader board and react in turn by using the Supabase API spefically.
 ## Prototype
 ![Image](ImageCS260.png)
+
+# Html Deliverable
 - [X] **HTML pages** - Four different pages. One for each view. `index.html` (Login), `play.html`, `scores.html`, and `about.html`.
 - [X] **Proper HTML element usage** - To build the structure you must use html to create the home page and login pages.
 - [X] **Links** - I have created the frame work so when make the links it will work

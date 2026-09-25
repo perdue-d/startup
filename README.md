@@ -19,9 +19,9 @@
 - [X] **HTML pages** - Four different pages. One for each view. `index.html` (Login), `play.html`, `scores.html`, and `about.html`.
 - [X] **Proper HTML element usage** - To build the structure you must use html to create the home page and login pages.
 - [X] **Links** - I have created the frame work so when make the links it will work
-- [] **Text** -
-- [] **3rd party API placeholder** - 
-- [] **Images** - 
+- [X] **Text** - I have added a bit of text to index to make sure that it works
+- [X] **3rd party API placeholder** - I have the places that i can put this created
+- [X] **Images** - Added a placeholder into index
 - [X] **Login placeholder** - I have made the login placeholder for when I make it 
-- [] **DB data placeholder** - 
-- [] **WebSocket placeholder** - 
+- [X] **DB data placeholder** - Created a placeholder
+- [X] **WebSocket placeholder** - Created a placeholder

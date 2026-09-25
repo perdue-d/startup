@@ -18,10 +18,10 @@
 ![Image](ImageCS260.png)
 - [X] **HTML pages** - Four different pages. One for each view. `index.html` (Login), `play.html`, `scores.html`, and `about.html`.
 - [X] **Proper HTML element usage** - To build the structure you must use html to create the home page and login pages.
-- [] **Links** - .
-- [] **Text** - About page has text.
+- [X] **Links** - I have created the frame work so when make the links it will work
+- [] **Text** -
 - [] **3rd party API placeholder** - 
 - [] **Images** - 
-- [] **Login placeholder** - P
+- [X] **Login placeholder** - I have made the login placeholder for when I make it 
 - [] **DB data placeholder** - 
-- [] **WebSocket placeholder** - T
+- [] **WebSocket placeholder** - 

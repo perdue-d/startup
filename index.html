@@ -10,7 +10,7 @@
     <main>
         <nav>
             <menu class ="nav-list">
-                <li><a href="index.html">Home Page </a></li>
+                <li><a href="index.html"> Home Page </a></li>
                 <li><a href="play.html"> Start the Game </a></li>
                 <li><a href="scores.html"> Compare your scores </a></li>
                 <li><a href="about.html"> Learn more  </a></li>
@@ -30,8 +30,8 @@
                 </span>
             <input type="password" placeholder="Enter password here">
         </div>
-            <button type="submit">Returning Foe</button>
-            <button type="submit">New Challenger</button>
+            <button class="my-button" type="submit">Returning Foe</button>
+            <button class="my button" type="submit">New Challenger</button>
         <div class="placeholder">
                 <p>API placeholder</p>
         </div>
@@ -48,16 +48,22 @@
   </body>
 </html>
 <style>
-head {font-family:'bungee',sans-serif;
+
+title {font-family:'bungee',sans-serif;
     font-size: 45px;
     text-align: center;
     letter-spacing:3px;
+    padding-top: 45px;
+    background-color: rgb(100,8,8);
 }
 .nav-list{display:flex;
 flex-direction:row;
 flex:1;
 font-size: 20px;
-letter-spacing: 0px;
+letter-spacing: 10px;
+background-color: rgb(100,8,8);
+border:1px black;
+justify-content:space-evenly;
 }
 h1{
 font-family:'bungee',sans-serif;
@@ -65,11 +71,22 @@ font-size: 40px;
 }
 .label-column{display:flex;
 flex-direction:column;
-margin: 0;}
-.placeholder{font-family:'Rubik Microbe', sans-serif;
+margin: 0;
+text-align:center;
+background-color: rgb(100,8,8);}
+.placeholder{
 display: flex;
 flex-direction:column;
-text-align:center;}
+text-align:center;
+background-color: rgb(100,8,8);}
+.my-button{
+    text-align:center;
+    background-color:rgb(100, 8, 8);
+    padding: 10px 20px;
+    border: 1px black;
+}
+
+
 
 
 </style>

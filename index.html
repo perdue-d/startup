@@ -9,11 +9,11 @@
     <header></header>
     <main>
         <nav>
-            <menu>
-            <li><a href="index.html">Home Page </a></li>
-            <li><a href="play.html"> Start the Game </a></li>
-            <li><a href="scores.html"> Compare your scores </a></li>
-            <li><a href="about.html"> Learn more  </a></li>
+            <menu class ="nav-list">
+                <li><a href="index.html">Home Page </a></li>
+                <li><a href="play.html"> Start the Game </a></li>
+                <li><a href="scores.html"> Compare your scores </a></li>
+                <li><a href="about.html"> Learn more  </a></li>
             </menu>
         </nav>
         <h1> Test Yourself</h1>
@@ -50,10 +50,12 @@
 <style>
 head {font-family:bungee;
     font-size:45px;
-    align: center;
+    text-align: center;
     letter-spacing:3px;
 }
-nav {}
+.nav-list{display:flex;
+flex-direction:row;
+flex:1;}
 h1{}
 label{}
 span{}

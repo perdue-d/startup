@@ -11,7 +11,6 @@ border:1px solid black;
 justify-content:space-evenly;
 list-style:none;
 font-weight:1000;
-letter-spacing:6px;
 }
 .my-title{
 font-family:'bungee',sans-serif;
@@ -56,4 +55,11 @@ input{
     text-align:center;
     font-size:30px;
 }
-
+.main-footer{display:flex;
+flex-direction:column;
+margin: 0;
+text-align:center;
+background-color: rgb(220,0,0);
+font-size:30px;
+font-weight:1000;
+letter-spacing:6px;}

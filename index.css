@@ -1,6 +1,6 @@
 * {font-family:'bungee',sans-serif;
-background-color:rgb(220, 0, 0);
 color:black;}
+body {background-color:rgb(220, 0, 0);}
 title {font-family:'bungee',sans-serif;
     font-size: 45px;
     text-align: center;

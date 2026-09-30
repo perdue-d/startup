@@ -27,3 +27,12 @@
 - [X] **Login placeholder** - I have made the login placeholder for when I make it 
 - [X] **DB data placeholder** - Created a placeholder
 - [X] **WebSocket placeholder** - Created a placeholder
+# 🚀 CSS deliverable
+
+
+- [x] **Header, footer, and main content body** - I used a common CSS file to style these `main.css`. The views specific things are in `about.css` and `play.css`.
+- [x] **Navigation elements** - Bootstrap NavBar. What a time saver.
+- [x] **Responsive to window resizing** - Bootstrap and `display:flex' did most the work here. I'm really happy with the game rendering.
+- [x] **Application elements** - I used a lot of `display:flex` to get things to align correctly.
+- [x] **Application text content** - Set all my text to Helvetica and it looks nice and clean.
+- [x] **Application images** - I left the about image as is.

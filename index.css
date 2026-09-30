@@ -1,18 +1,18 @@
 * {font-family:'bungee',sans-serif;
 color:black;}
-body {background-color:rgb(220, 0, 0);}
+body {background-color:rgb(255, 255, 255);}
 title {font-family:'bungee',sans-serif;
-    font-size: 45px;
+    font-size:45px;
     text-align: center;
     letter-spacing:3px;
-    padding-top: 45px;
+    padding-top:45px;
     background-color: rgb(220,0,0);
 }
 .nav-list{display:flex;
 flex-direction:row;
 flex:1;
-font-size: 20px;
-letter-spacing: 10px;
+font-size:20px;
+letter-spacing:10px;
 background-color: rgb(220, 0, 0);
 border:1px black;
 justify-content:space-evenly;
@@ -22,7 +22,7 @@ letter-spacing:6px;
 }
 h1{
 font-family:'bungee',sans-serif;
-font-size: 40px;
+font-size:40px;
 }
 .label-column{display:flex;
 flex-direction:column;
@@ -39,24 +39,24 @@ text-align:center;
 background-color: rgb(220,0,0);}
 .my-button{
     background-color:rgb(220, 0, 0);
-    padding: 20px 40px;
-    border: 2px solid black;
-    border-width: 2px;
-    font-size: 20px;
+    padding:20px 40px;
+    border:2px solid black;
+    border-width:2px;
+    font-size:20px;
     font-weight:1000;
-    letter-spacing: 6px;
+    letter-spacing:6px;
 }
 .button-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap:20px;
     width: 100%;
     margin-top: 20px;
 }
 input{
     text-align:center;
-    font-size: 30px;
+    font-size:30px;
 }
 h1{text-align:center;
-font-size:60 px;}
+font-size:60px;}

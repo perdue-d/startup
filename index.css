@@ -7,7 +7,7 @@ flex:1;
 font-size:20px;
 letter-spacing:10px;
 background-color: rgb(220, 0, 0);
-border:1px black;
+border:1px solid black;
 justify-content:space-evenly;
 list-style:none;
 font-weight:1000;
@@ -15,9 +15,7 @@ letter-spacing:6px;
 }
 .my-title{
 font-family:'bungee',sans-serif;
-font-size:40px;
 text-align:center;
-font-size:60px;
 font-family:'bungee',sans-serif;
 font-size:45px;
 text-align: center;

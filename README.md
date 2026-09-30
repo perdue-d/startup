@@ -29,10 +29,9 @@
 - [X] **WebSocket placeholder** - Created a placeholder
 # 🚀 CSS deliverable
 
-
-- [x] **Header, footer, and main content body** - I used a common CSS file to style these `main.css`. The views specific things are in `about.css` and `play.css`.
-- [x] **Navigation elements** - Bootstrap NavBar. What a time saver.
+- [x] **Header, footer, and main content body** - I finally made it so the index.css had everything i wanted and looked the way i wanted 
+- [x] **Navigation elements** - I made the Nav bar disticnt and center with each of the links underlined so it works 
 - [x] **Responsive to window resizing** - Bootstrap and `display:flex' did most the work here. I'm really happy with the game rendering.
 - [x] **Application elements** - I used a lot of `display:flex` to get things to align correctly.
-- [x] **Application text content** - Set all my text to Helvetica and it looks nice and clean.
-- [x] **Application images** - I left the about image as is.
+- [x] **Application text content** - I made it so the font was Bungee because it fit the mood that i was going for with the intense challenge
+- [x] **Application images** - I centered and widened the image but left the place holder as is 

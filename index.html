@@ -19,24 +19,24 @@
         <h1> Test Yourself</h1>
         <form method="get" action="play.html">
         <div>
-            <label>
+            <label class= "label-column">
                         Login to Play
                 <input type="text" placeholder="enter Name here">
             </label>
         </div>
         <div>
-                <span>
+                <span class ="label-column">
                         Prove You say who you say you are
                 </span>
             <input type="password" placeholder="Enter password here">
         </div>
             <button type="submit">Returning Foe</button>
             <button type="submit">New Challenger</button>
-        <div id="Apiplaceholder">
-                <p>placeholder</p>
+        <div class="placeholder">
+                <p>API placeholder</p>
         </div>
-        <div id="Websocket">
-                <p>placeholder</p>
+        <div class="placeholder">
+                <p>Web socket placeholder</p>
         </div>
         
         </form>
@@ -48,19 +48,28 @@
   </body>
 </html>
 <style>
-head {font-family:bungee;
-    font-size:45px;
+head {font-family:'bungee',sans-serif;
+    font-size: 45px;
     text-align: center;
     letter-spacing:3px;
 }
 .nav-list{display:flex;
 flex-direction:row;
-flex:1;}
-h1{}
-label{}
-span{}
-button{}
-p {}
-footer{}
+flex:1;
+font-size: 20px;
+letter-spacing: 0px;
+}
+h1{
+font-family:'bungee',sans-serif;
+font-size: 40px;
+}
+.label-column{display:flex;
+flex-direction:column;
+margin: 0;}
+.placeholder{font-family:'Rubik Microbe', sans-serif;
+display: flex;
+flex-direction:column;
+text-align:center;}
+
 
 </style>

@@ -4,7 +4,6 @@ import './scores.css';
 export function Scores() {
   return (
     <main className="container-fluid bg-secondary text-center">
-      <main className="container-fluid bg-secondary text-center">
       <table className="table table-warning table-striped-columns">
         <thead className="table-dark">
           <tr>
@@ -14,6 +13,7 @@ export function Scores() {
             <th>Date</th>
           </tr>
         </thead>
+
         <tbody>
           <tr>
             <td>1</td>
@@ -21,12 +21,14 @@ export function Scores() {
             <td>34</td>
             <td>May 20, 2021</td>
           </tr>
+
           <tr>
             <td>2</td>
             <td>Annie James</td>
             <td>29</td>
             <td>June 2, 2021</td>
           </tr>
+
           <tr>
             <td>3</td>
             <td>Gunter Spears</td>
@@ -35,7 +37,6 @@ export function Scores() {
           </tr>
         </tbody>
       </table>
-    </main>
     </main>
   );
 }

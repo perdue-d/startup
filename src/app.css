@@ -1,65 +1,177 @@
-* {font-family:'bungee',sans-serif;
-color:black;}
-body {background-color:rgb(255, 255, 255);}
-.nav-list{display:flex;
-flex-direction:row;
-flex:1;
-font-size:20px;
-letter-spacing:10px;
-background-color: rgb(220, 0, 0);
-border:1px solid black;
-justify-content:space-evenly;
-list-style:none;
-font-weight:1000;
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+* {
+  font-family: 'Bungee', sans-serif;
+  color: black;
+  box-sizing: border-box;
 }
-.my-title{
-font-family:'bungee',sans-serif;
-text-align:center;
-font-size:45px;
-text-align: center;
-letter-spacing:3px;
-padding-top:45px;
-background-color: rgb(220,0,0);
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
 }
-.label-column{display:flex;
-flex-direction:column;
-margin: 0;
-text-align:center;
-background-color: rgb(220,0,0);
-font-size:30px;
-font-weight:1000;
-letter-spacing:6px;}
-.placeholder{
-display: flex;
-flex-direction:column;
-text-align:center;
-background-color: rgb(220,0,0);}
-.my-button{
-    background-color:rgb(220, 0, 0);
-    padding:20px 40px;
-    border:2px solid black;
-    border-width:2px;
-    font-size:20px;
-    font-weight:1000;
-    letter-spacing:6px;
+
+.body {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+.my-title {
+  font-family: 'Bungee', sans-serif;
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: 3px;
+  padding: 45px 10px 20px;
+  margin: 0;
+  background-color: rgb(220, 0, 0);
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  font-size: 20px;
+  letter-spacing: 4px;
+
+  background-color: rgb(220, 0, 0);
+  border: 1px solid black;
+
+  list-style: none;
+  font-weight: 1000;
+
+  margin: 0;
+  padding: 15px;
+}
+
+.nav-list a {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+}
+
+.nav-list a.active {
+  text-decoration: underline;
+}
+
+.page-content {
+  flex: 1;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.label-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  margin: 20px auto;
+  padding: 30px;
+
+  max-width: 700px;
+
+  text-align: center;
+  background-color: rgb(220, 0, 0);
+
+  font-size: 30px;
+  font-weight: 1000;
+  letter-spacing: 6px;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  margin: 30px auto;
+}
+
+.placeholder img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid black;
+}
+
+.my-button {
+  background-color: rgb(220, 0, 0);
+  padding: 20px 40px;
+  border: 2px solid black;
+
+  font-size: 20px;
+  font-weight: 1000;
+  letter-spacing: 3px;
+
+  cursor: pointer;
+}
+
 .button-row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:20px;
-    width: 100%;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
-input{
-    text-align:center;
-    font-size:30px;
+
+input {
+  text-align: center;
+  font-size: 24px;
+
+  max-width: 500px;
+  width: 90%;
+
+  padding: 8px;
+  border: 2px solid black;
 }
-.main-footer{display:flex;
-flex-direction:column;
-margin: 0;
-text-align:center;
-background-color: rgb(220,0,0);
-font-size:30px;
-font-weight:1000;
-letter-spacing:6px;}
+
+.score-list {
+  list-style-position: inside;
+  font-size: 22px;
+  padding: 0;
+}
+
+.main-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin: 0;
+  padding: 20px;
+
+  text-align: center;
+  background-color: rgb(220, 0, 0);
+
+  font-size: 20px;
+  font-weight: 1000;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 700px) {
+  .my-title {
+    font-size: 32px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    letter-spacing: 2px;
+  }
+
+  .label-column {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}

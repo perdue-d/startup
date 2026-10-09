@@ -35,3 +35,13 @@
 - [x] **Application elements** - I used a lot of `display:flex` to get things to align correctly.
 - [x] **Application text content** - I made it so the font was Bungee because it fit the mood that i was going for with the intense challenge
 - [x] **Application images** - I centered and widened the image but left the place holder as is 
+
+# React part1
+
+- [x] Bundled the application using Vite
+- [x] Converted startup HTML/CSS into React functional components
+- [x] Created separate components for Login, Play, Scores, and About
+- [x] Added React Router using BrowserRouter, Routes, Route, and NavLink
+- [x] Added my name to the application
+- [x] Added a link to my GitHub repository
+- [x] Deployed the startup React application to production

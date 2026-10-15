@@ -1,3 +1,6 @@
+# https://reactiontimecs260.click/
+# https://simon.reactiontimecs260.click/
+
 # Specification Deliverable
 ## Elevator Pitch
 ### The primal urge each of has calls to compete and to dominate. Test the skills you have by measuring your reaciton time vs others in a unique simulator. You will have 60 seconds to push the randomly appearing button as many times as possible. You will be able to compete and create your very own login with authentication to be able to post your score on the global leaderboard. You will recieve real time updates about when your score is beaten and you will be able to reclaim your postion and the top. 

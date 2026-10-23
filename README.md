@@ -48,3 +48,70 @@
 - [x] Added my name to the application
 - [x] Added a link to my GitHub repository
 - [x] Deployed the startup React application to production
+
+# Startup React P2: Reactivity Deliverable
+
+## Overview
+
+For this phase, I added the action interactive game to the Reaction Time application. You can enter a username, play a 60-second game, and save their scores to a leaderboard.
+
+## Multiple React Components (70%)
+
+- **App:** Manages shared user and leaderboard state and passes values and functions through React component props.
+- **Login:** Allows players to enter a username, log in, and log out.
+- **Play:** Implements a 60-second game with a countdown timer, moving clickable targets, and a score counter.
+- **Scores:** Displays leaderboard entries, ranked from highest to lowest score.
+- **About:** Explains the application and how to play.
+
+## React Hooks (30%)
+
+**useState**
+- Stores the logged-in username.
+- Tracks the player's current score.
+- Tracks the countdown timer.
+- Controls whether the game is ready, playing, or finished.
+- Stores the moving target's position.
+- Stores and displays leaderboard data.
+
+**useEffect**
+- Saves the username to localStorage when it changes.
+- Saves leaderboard data when scores change.
+- Runs and cleans up the game's countdown interval.
+- Detects when the timer reaches zero and saves the final score.
+
+## Reactive Functionality
+
+- Components change their rendered content based on React state.
+- Buttons respond to user interaction.
+- Every successful target click increases the score.
+- The target moves to a random position after each click.
+- The countdown updates automatically.
+- Scores are saved when the game finishes.
+- Players can start a new game without refreshing the page.
+- Leaderboard entries are sorted by score.
+
+## Mocked Functionality
+
+Backend functionality is mocked using browser localStorage.
+
+- Usernames persist in the browser.
+- Leaderboard scores persist after refreshing.
+- Login does not yet provide secure authentication.
+- No passwords are stored.
+- Scores are currently local to each browser, not shared globally.
+- Backend authentication, database storage, and WebSocket updates will be added in future deliverables.
+
+## Technologies Used
+
+- React
+- React Router
+- React Hooks
+- JavaScript
+- HTML and CSS
+- Bootstrap
+- Vite
+- Browser localStorage
+
+## Deployment
+
+The application is built with Vite and deployed to my AWS production server using `deployReact.sh`.

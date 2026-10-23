@@ -10,10 +10,13 @@ export function Play({ user, setScores }) {
   const [endTime, setEndTime] = useState(null);
 
   function randomPosition() {
-    setPosition({
-      x: 10 + Math.random() * 80,
-      y: 12 + Math.random() * 76,
-    });
+  const randomX = 6 + Math.random() * 88;
+  const randomY = 10 + Math.random() * 80;
+
+  setPosition({
+    x: randomX,
+    y: randomY,
+  });
   }
 
   function startGame() {

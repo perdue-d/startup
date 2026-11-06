@@ -115,3 +115,139 @@ Backend functionality is mocked using browser localStorage.
 ## Deployment
 
 The application is built with Vite and deployed to my AWS production server using `deployReact.sh`.
+
+# Startup Service Deliverable
+
+## Overview
+
+For this deliverable, I converted my Reaction Time game into a web application that uses a backend service. I added user authentication, a shared leaderboard, and communication between my React frontend and Node.js backend.
+
+My application allows users to create accounts, log in, play a 60-second reaction time game, and compare their scores with other players.
+
+## 1. Node.js and Express (10%)
+
+I created a backend service using Node.js and Express.
+
+- Created a `service` directory.
+- Created `service/index.js` for the backend.
+- Configured the backend to run on port 4000.
+- Used Express to handle HTTP requests and responses.
+
+## 2. Express Static Middleware (10%)
+
+I configured Express to serve my React frontend using static middleware.
+
+- Used `express.static('public')` to serve the compiled React files.
+- Used Vite to build the frontend.
+- Configured the backend to support React Router.
+- Deployed the frontend and backend together on my AWS server.
+
+## 3. Third-Party API (10%)
+
+I added a third-party API to my About page.
+
+- Used the public GitHub API.
+- Called the API using JavaScript `fetch`.
+- Retrieved information about my GitHub startup repository.
+- Displayed repository information, including the repository name, stars, and forks.
+
+API used: https://api.github.com/repos/perdue-d/startup
+
+## 4. Backend Service Endpoints (20%)
+
+I created backend endpoints to handle authentication and leaderboard functionality.
+
+| Endpoint | Purpose |
+|---|---|
+| `POST /api/auth/create` | Creates a new account |
+| `POST /api/auth/login` | Logs in an existing user |
+| `DELETE /api/auth/logout` | Logs out the current user |
+| `GET /api/auth/me` | Returns the authenticated user |
+| `GET /api/scores` | Retrieves leaderboard scores |
+| `POST /api/score` | Saves a player's score |
+
+The backend stores user information and leaderboard scores in server memory.
+
+## 5. Frontend Calls Backend (20%)
+
+I connected my React frontend to the Express backend using `fetch`.
+
+- The login page communicates with the authentication endpoints.
+- The game sends completed scores to the backend.
+- The leaderboard retrieves scores from the server.
+- The application checks whether a user is authenticated.
+- The frontend processes JSON responses from the backend.
+
+This replaces the previous version, which used browser localStorage to store usernames and scores.
+
+## 6. User Authentication (25%)
+
+I implemented registration, login, and logout.
+
+**Registration**
+- Users create an account with a username and password.
+- The backend checks whether the username already exists.
+- New accounts receive authentication tokens.
+
+**Login**
+- Users log in using their username and password.
+- The backend validates the credentials.
+- Authentication tokens are stored in HTTP-only cookies.
+
+**Logout**
+- Users can log out of their accounts.
+- The backend invalidates the authentication token and clears the cookie.
+
+**Protected Endpoints**
+- `GET /api/auth/me` requires authentication.
+- `POST /api/score` requires authentication.
+- Unauthorized requests receive an HTTP 401 response.
+
+## 7. BCrypt Password Hashing (5%)
+
+I used the `bcryptjs` library to protect user passwords.
+
+- Passwords are hashed before being stored.
+- Plaintext passwords are not stored in the backend.
+- Login uses BCrypt to compare the entered password with the stored hash.
+
+## Reaction Time Game Improvements
+
+I improved the gameplay by making the button move to a random position every time it is clicked.
+
+- The game lasts 60 seconds.
+- Each successful click increases the score by one.
+- The target moves to a new random position after each click.
+- React state manages the score, timer, and button position.
+- The button uses absolute positioning inside the game area.
+- When the timer ends, the final score is submitted to the backend.
+- The leaderboard displays scores from the server.
+
+## Deployment
+
+I deployed my application using AWS EC2, Node.js, PM2, and Caddy.
+
+- Used an Ubuntu EC2 server to host the application.
+- Configured the backend to run on port 4000.
+- Used PM2 to manage the Node.js process.
+- Used Caddy to forward HTTPS requests to the backend.
+- Deployed the compiled React frontend to the server.
+- Deployed Simon Service separately on port 3000.
+
+## Current Limitations
+
+User accounts and leaderboard scores are currently stored in server memory. Restarting the backend clears this information. Persistent database storage will be implemented in a later deliverable.
+
+## Website Links
+
+**Reaction Time Website:**  
+https://reactiontimecs260.click
+
+**Startup Website:**  
+https://startup.reactiontimecs260.click
+
+**Simon Service:**  
+https://simon.reactiontimecs260.click
+
+**GitHub Repository:**  
+https://github.com/perdue-d/startup

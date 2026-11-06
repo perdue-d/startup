@@ -10,33 +10,43 @@ export function Play({ user, refreshScores }) {
   const [endTime, setEndTime] = useState(null);
   const [error, setError] = useState('');
   const [saveMessage, setSaveMessage] = useState('');
+
   const saved = useRef(false);
 
-  function randomPosition() {
+  function moveButton() {
     setPosition({
-      x: 6 + Math.random() * 88,
+      x: 8 + Math.random() * 84,
       y: 10 + Math.random() * 80,
     });
   }
 
   function startGame() {
     saved.current = false;
+
     setScore(0);
     setTimeLeft(60);
     setError('');
     setSaveMessage('');
-    randomPosition();
+
+    moveButton();
+
     setEndTime(Date.now() + 60000);
     setStatus('playing');
   }
 
-  function clickTarget() {
-    if (status !== 'playing' || Date.now() >= endTime) {
+  function clickButton() {
+    if (status !== 'playing') {
+      return;
+    }
+
+    if (Date.now() >= endTime) {
       return;
     }
 
     setScore((previous) => previous + 1);
-    randomPosition();
+
+    // MOVE THE BUTTON EVERY TIME IT IS CLICKED
+    moveButton();
   }
 
   useEffect(() => {
@@ -84,6 +94,7 @@ export function Play({ user, refreshScores }) {
         }
 
         await refreshScores();
+
         setSaveMessage('Your score was saved!');
       } catch (error) {
         setError(error.message);
@@ -97,6 +108,7 @@ export function Play({ user, refreshScores }) {
     return (
       <main className="page-content">
         <h1>Reaction Time Game</h1>
+
         <p>Please log in before playing.</p>
 
         <Link className="my-button" to="/">
@@ -109,13 +121,16 @@ export function Play({ user, refreshScores }) {
   return (
     <main className="page-content">
       <h1>Reaction Time Game</h1>
-      <h2>{user}</h2>
-      <h2>Time Remaining {timeLeft}</h2>
+
+      <h2>Player: {user}</h2>
+
+      <h2>Time Remaining: {timeLeft}</h2>
+
       <h2>Score: {score}</h2>
 
       {status === 'ready' && (
         <div>
-          <p>Press as fast as you can!</p>
+          <p>Click the button as many times as you can!</p>
 
           <button
             className="my-button"
@@ -127,15 +142,32 @@ export function Play({ user, refreshScores }) {
       )}
 
       {status === 'playing' && (
-        <div className="game-area">
+        <div
+          className="game-area"
+          style={{
+            position: 'relative',
+            width: '100%',
+            height: '450px',
+            overflow: 'hidden',
+            border: '3px solid black',
+            backgroundColor: '#f5f5f5',
+          }}
+        >
           <button
             className="game-target"
-            onClick={clickTarget}
+            onClick={clickButton}
             style={{
+              position: 'absolute',
               left: `${position.x}%`,
               top: `${position.y}%`,
+              transform: 'translate(-50%, -50%)',
+              backgroundColor: 'red',
+              color: 'white',
+              padding: '15px 25px',
+              border: '2px solid black',
+              cursor: 'pointer',
+              zIndex: 10,
             }}
-            aria-label="Click reaction target"
           >
             CLICK!
           </button>
@@ -144,10 +176,12 @@ export function Play({ user, refreshScores }) {
 
       {status === 'finished' && (
         <div>
-          <h2>You're Done!</h2>
+          <h2>Time's Up!</h2>
+
           <h2>Final Score: {score}</h2>
 
           {saveMessage && <p>{saveMessage}</p>}
+
           {error && <p role="alert">{error}</p>}
 
           <div className="button-row">

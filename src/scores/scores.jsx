@@ -1,7 +1,11 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export function Scores({ scores, user }) {
+export function Scores({ scores, user, refreshScores }) {
+  useEffect(() => {
+    refreshScores();
+  }, []);
+
   const sortedScores = [...scores].sort(
     (a, b) => b.score - a.score
   );
@@ -15,7 +19,7 @@ export function Scores({ scores, user }) {
       {user && <h2>Current Player: {user}</h2>}
 
       {sortedScores.length === 0 ? (
-        <p>empty for now</p>
+        <p>Empty for now</p>
       ) : (
         <table className="table table-striped score-table">
           <thead>
@@ -29,14 +33,12 @@ export function Scores({ scores, user }) {
 
           <tbody>
             {sortedScores.map((entry, index) => (
-              <tr key={entry.id || index}>
+              <tr key={entry.id}>
                 <td>{index + 1}</td>
                 <td>{entry.name}</td>
                 <td>{entry.score}</td>
                 <td>
-                  {entry.date
-                    ? new Date(entry.date).toLocaleDateString()
-                    : '-'}
+                  {new Date(entry.date).toLocaleDateString()}
                 </td>
               </tr>
             ))}

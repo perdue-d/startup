@@ -1,27 +1,30 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export function Play({ user, setScores }) {
+export function Play({ user, refreshScores }) {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60);
   const [status, setStatus] = useState('ready');
   const [position, setPosition] = useState({ x: 50, y: 50 });
   const [endTime, setEndTime] = useState(null);
+  const [error, setError] = useState('');
+  const [saveMessage, setSaveMessage] = useState('');
+  const saved = useRef(false);
 
   function randomPosition() {
-  const randomX = 6 + Math.random() * 88;
-  const randomY = 10 + Math.random() * 80;
-
-  setPosition({
-    x: randomX,
-    y: randomY,
-  });
+    setPosition({
+      x: 6 + Math.random() * 88,
+      y: 10 + Math.random() * 80,
+    });
   }
 
   function startGame() {
+    saved.current = false;
     setScore(0);
     setTimeLeft(60);
+    setError('');
+    setSaveMessage('');
     randomPosition();
     setEndTime(Date.now() + 60000);
     setStatus('playing');
@@ -36,7 +39,6 @@ export function Play({ user, setScores }) {
     randomPosition();
   }
 
-  // Update the countdown during the game.
   useEffect(() => {
     if (status !== 'playing') {
       return;
@@ -54,30 +56,49 @@ export function Play({ user, setScores }) {
     return () => clearInterval(timer);
   }, [status, endTime]);
 
-  // Finish the game and save the final score.
   useEffect(() => {
-    if (status !== 'playing' || timeLeft > 0) {
+    if (
+      status !== 'playing' ||
+      timeLeft > 0 ||
+      saved.current
+    ) {
       return;
     }
 
-    setScores((previous) => [
-      ...previous,
-      {
-        id: crypto.randomUUID(),
-        name: user,
-        score: score,
-        date: new Date().toISOString(),
-      },
-    ]);
-
+    saved.current = true;
     setStatus('finished');
-  }, [timeLeft, status, score, user, setScores]);
+
+    async function saveScore() {
+      try {
+        const response = await fetch('/api/score', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'same-origin',
+          body: JSON.stringify({ score }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Could not save your score.');
+        }
+
+        await refreshScores();
+        setSaveMessage('Your score was saved!');
+      } catch (error) {
+        setError(error.message);
+      }
+    }
+
+    saveScore();
+  }, [status, timeLeft, score, refreshScores]);
 
   if (!user) {
     return (
       <main className="page-content">
         <h1>Reaction Time Game</h1>
         <p>Please log in before playing.</p>
+
         <Link className="my-button" to="/">
           Go to Login
         </Link>
@@ -88,18 +109,18 @@ export function Play({ user, setScores }) {
   return (
     <main className="page-content">
       <h1>Reaction Time Game</h1>
-
-      <h2> {user}</h2>
+      <h2>{user}</h2>
       <h2>Time Remaining {timeLeft}</h2>
-      <h2> {score}</h2>
+      <h2>Score: {score}</h2>
 
       {status === 'ready' && (
         <div>
-          <p>
-            Press as fast as you can
-          </p>
+          <p>Press as fast as you can!</p>
 
-          <button className="my-button" onClick={startGame}>
+          <button
+            className="my-button"
+            onClick={startGame}
+          >
             Begin
           </button>
         </div>
@@ -123,12 +144,17 @@ export function Play({ user, setScores }) {
 
       {status === 'finished' && (
         <div>
-          <h2>Your Done</h2>
+          <h2>You're Done!</h2>
           <h2>Final Score: {score}</h2>
-          <p>This will be Remembered.</p>
+
+          {saveMessage && <p>{saveMessage}</p>}
+          {error && <p role="alert">{error}</p>}
 
           <div className="button-row">
-            <button className="my-button" onClick={startGame}>
+            <button
+              className="my-button"
+              onClick={startGame}
+            >
               Play Again
             </button>
 

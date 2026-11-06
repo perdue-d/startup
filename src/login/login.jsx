@@ -30,7 +30,25 @@ export function Login({ user, setUser }) {
         }),
       });
 
-      const data = await response.json();
+      const responseText = await response.text();
+
+      let data = {};
+
+      if (responseText) {
+         try {
+           data = JSON.parse(responseText);
+          } catch {
+          throw new Error(
+          `Server returned an invalid response (HTTP ${response.status}).`
+        ) ;
+      }
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          data.msg || `Login failed (HTTP ${response.status}).`
+        );
+      }
 
       if (!response.ok) {
         throw new Error(data.msg || 'Authentication failed.');

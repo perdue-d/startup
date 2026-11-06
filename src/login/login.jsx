@@ -4,25 +4,65 @@ import { useNavigate } from 'react-router-dom';
 
 export function Login({ user, setUser }) {
   const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  function login(event) {
+  async function authenticate(event, action) {
     event.preventDefault();
+    setError('');
 
-    if (!name.trim()) {
-      setError('Please enter your name.');
+    if (!name.trim() || password.length < 8) {
+      setError('Enter a username and password of at least 8 characters.');
       return;
     }
 
-    setUser(name.trim());
-    setError('');
-    navigate('/play');
+    try {
+      const response = await fetch(`/api/auth/${action}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify({
+          username: name.trim(),
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.msg || 'Authentication failed.');
+      }
+
+      setUser(data.username);
+      setPassword('');
+      navigate('/play');
+    } catch (error) {
+      setError(error.message);
+    }
   }
 
-  function logout() {
-    setUser('');
-    setName('');
+  async function logout() {
+    try {
+      const response = await fetch('/api/auth/logout', {
+        method: 'DELETE',
+        credentials: 'same-origin',
+      });
+
+      if (!response.ok) {
+        throw new Error('Could not log out.');
+      }
+
+      setUser('');
+      setName('');
+      setPassword('');
+      setError('');
+      navigate('/');
+    } catch (error) {
+      setError(error.message);
+    }
   }
 
   return (
@@ -42,34 +82,65 @@ export function Login({ user, setUser }) {
               Play Game
             </button>
 
-            <button className="my-button" onClick={logout}>
+            <button
+              className="my-button"
+              onClick={logout}
+            >
               Logout
             </button>
           </div>
+
+          {error && <p role="alert">{error}</p>}
         </div>
       ) : (
-        <form className="label-column" onSubmit={login}>
-          <label htmlFor="username">Name</label>
+        <form
+          className="label-column"
+          onSubmit={(event) => authenticate(event, 'login')}
+        >
+          <label htmlFor="username">Username</label>
 
           <input
             id="username"
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            placeholder="Enter name here"
+            placeholder="Enter username"
             maxLength={30}
+            autoComplete="username"
+            required
+          />
+
+          <label htmlFor="password">Password</label>
+
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Enter password"
+            minLength={8}
+            autoComplete="current-password"
+            required
           />
 
           {error && <p role="alert">{error}</p>}
 
-          <p>
-            Enter a name to start playing.
-            Login is mocked for this assignment.
-          </p>
+          <div className="button-row">
+            <button
+              className="my-button"
+              type="submit"
+            >
+              Login
+            </button>
 
-          <button className="my-button" type="submit">
-            Login / Create Account
-          </button>
+            <button
+              className="my-button"
+              type="button"
+              onClick={(event) => authenticate(event, 'create')}
+            >
+              Create Account
+            </button>
+          </div>
         </form>
       )}
     </main>

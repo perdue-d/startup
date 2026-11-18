@@ -242,13 +242,20 @@ User accounts and leaderboard scores are currently stored in server memory. Rest
 
 ### Application data in MongoDB (50%)
 
--I updated Reaction Time to save game results in MongoDB Atlas. When a signed-in player finishes a game, `POST /api/score` saves the player's username, score, and date in the `reactiontime.scores` collection. The leaderboard retrieves saved results through `GET /api/scores`.
+- I updated Reaction Time to save game results in MongoDB Atlas. When a signed-in player finishes a game, `POST /api/score` saves the player's username, score, and date in the `reactiontime.scores` collection. The leaderboard retrieves saved results through `GET /api/scores`.
 
 ### User credentials in MongoDB (50%)
 
--Registration stores each username and a BCrypt password hash in the `reactiontime.users` collection. When a player logs in, the backend retrieves the account from MongoDB and checks the submitted password against the stored hash.
+- Registration stores each username and a BCrypt password hash in the `reactiontime.users` collection. When a player logs in, the backend retrieves the account from MongoDB and checks the submitted password against the stored hash.
 
--The backend uses an HTTP-only cookie for the session, invalidates the session on logout, and requires players to sign in before submitting scores.
+- The backend uses an HTTP-only cookie for the session, invalidates the session on logout, and requires players to sign in before submitting scores.
+
+### Implementation files
+
+- `service/database.js` connects to MongoDB Atlas and queries the `users`
+  and `scores` collections.
+- `service/index.js` defines the Express authentication and score routes.
+
 ## Website Links
 
 **Reaction Time Website:**  

@@ -238,6 +238,12 @@ I deployed my application using AWS EC2, Node.js, PM2, and Caddy.
 
 User accounts and leaderboard scores are currently stored in server memory. Restarting the backend clears this information. Persistent database storage will be implemented in a later deliverable.
 
+## Startup DB Deliverable
+
+### Application data in MongoDB (50%)
+
+I updated Reaction Time to save game results in MongoDB Atlas. When a signed-in player finishes a game, `POST /api/score` saves the player's username, score, and date in the `reactiontime.scores` collection. The leaderboard retrieves saved results through `GET /api/scores`.
+
 ## Website Links
 
 **Reaction Time Website:**  

@@ -39,7 +39,6 @@ scp -r -i "$key" build/* ubuntu@$hostname:services/$service
 # Step 4
 printf "\n----> Deploy the service on the target\n"
 ssh -i "$key" ubuntu@$hostname << ENDSSH
-bash -i
 cd services/${service}
 npm install
 pm2 restart ${service}

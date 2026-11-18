@@ -7,3 +7,4 @@ service/dbConfig.json
 node_modules/
 build/
 dist/
+service/dbConfig.json
